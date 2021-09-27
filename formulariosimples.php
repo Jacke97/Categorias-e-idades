@@ -1,4 +1,7 @@
-</DOCTYPE html>
+<?php
+  session_start();
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,6 +15,19 @@
 <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
 
 <form action="script.php" method="post">
+  <?php
+    $mensagemDeSucesso = isset($_SESSION['mensagem de sucesso']) ? $_SESSION['mensagem de sucesso']: '';
+    if(!empty($mensagemDeSucesso))
+    {
+       echo $mensagemDeSucesso;
+    }
+
+    $mensagemDeErro = isset($_SESSION['mensagem de erro']) ? $_SESSION['mensagem de erro']: '';
+    if(!empty($mensagemDeErro))
+    {
+       echo $mensagemDeErro;
+    }
+  ?>
   <p>Your name: <Input type="text" name="nome" /></p>
   <p>Your age: <Input type="text" name="idade" /></p>
   <p><Input type="submit" value="Enviar dados do competidor" /></p>
@@ -19,4 +35,5 @@
 
 </body>
 
-</html>
+</html
+
